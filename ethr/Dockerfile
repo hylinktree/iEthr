@@ -5,5 +5,4 @@ WORKDIR /app
 ADD ./ /app
 
 RUN mkdir /out && \
-    go build . && \
-    bash
+    go build .

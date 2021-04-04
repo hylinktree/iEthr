@@ -1,9 +1,25 @@
 version: "3"
 
 networks:
-	iethr
+  iethr:
+
+volumes:
+  app_data: {}
 
 services:
-	ethr::
 
+  ethr:
+    build: ./ethr
+    ports:
+      - 4048:4048
+    volumes:
+      - app_data:/var/log
+    networks:
+      - iethr
 
+  db:
+    image: grafana/tns-db:latest
+    ports:
+      - 8082:80
+    networks:
+      - iethr

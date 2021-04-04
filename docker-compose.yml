@@ -10,12 +10,16 @@ services:
 
   ethr:
     build: ./ethr
-    #args:
-    #  - GOOS=whist
+#    args:
+#      - GOOS=whist
     depends_on:
       - db
     ports:
       - 4048:4048
+    environment:
+      - GOOS=$GOOS
+    command:
+      - build docker 
     volumes:
       - app_data:/var/log
     networks:

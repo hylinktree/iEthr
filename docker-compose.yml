@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 
 networks:
   iethr:
@@ -10,8 +10,8 @@ services:
 
   ethr:
     build: ./ethr
-    args:
-      - GOOS=whist
+    #args:
+    #  - GOOS=whist
     depends_on:
       - db
     ports:
